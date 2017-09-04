@@ -137,7 +137,7 @@ export default {
 @white: #ffffff;
 @gray: #e0e0e0;
 @gray-dark: #b1b1b1;
-@large-padding: 15px;
+@large-padding: 10px;
 @small-padding: 10px;
 
 @icon-border-size: 1px;
@@ -150,7 +150,7 @@ export default {
       padding: 30px;
       float: left;
       .date-num{
-        line-height: 50px;
+        line-height: 40px;
       }
     }
   }
@@ -161,7 +161,7 @@ export default {
       width: 45%;
       padding: 10px;
       .date-num{
-        line-height: 42px;
+        line-height: 40px;
       }
     }
     .events-wrapper{
@@ -198,7 +198,7 @@ export default {
       // box-shadow: 0 6px 5px rgba(0,0,0,.1);
       font-weight: 500;
       overflow: hidden;
-      padding-bottom: 10px;
+      padding-bottom: 2px;
       &>div{
         float: left;
         line-height: 20px;
@@ -231,7 +231,7 @@ export default {
         text-align: center;
         font-size: 1rem;
         .item{
-          line-height: 50px;
+          line-height: 40px;
           float: left;
           width: 14.285%;
         }
