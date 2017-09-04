@@ -7,12 +7,6 @@
       @cur-day-changed="handleChangeCurDay"
       @month-changed="handleMonthChanged">
     </cal-panel>
-    <cal-events
-      :dayEvents="selectedDayEvents"
-      :locale="calendarOptions.options.locale"
-      :color="calendarOptions.options.color">
-      <slot :showEvents="selectedDayEvents.events"></slot>
-    </cal-events>
   </div>
 </template>
 <script>
@@ -149,32 +143,23 @@ export default {
 @icon-border-size: 1px;
 @media screen and (min-width: 768px) {
   .__vev_calendar-wrapper{
-    max-width: 1200px;
+    max-width: 800px;
     margin: 0 auto;
     .cal-wrapper{
-      width: 50%;
-      padding: 100px 50px;
+      width: 45%;
+      padding: 30px;
+      float: left;
       .date-num{
         line-height: 50px;
       }
-    }
-    .events-wrapper{
-      width: 50%;
-      background-color: @base-orange;
-      color: @white;
-      padding: 40px 45px;
-      position: absolute;
-      left: 50%;
-      top: 0;
-      bottom: 0;
     }
   }
 }
 @media screen and (max-width: 768px) {
   .__vev_calendar-wrapper{
     .cal-wrapper{
-      width: 100%;
-      padding: 10px 5px;
+      width: 45%;
+      padding: 10px;
       .date-num{
         line-height: 42px;
       }

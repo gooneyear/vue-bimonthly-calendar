@@ -65,6 +65,7 @@ function install (Vue, options = {}) {
         params: {
           curYear: dateObj.getFullYear(),
           curMonth: dateObj.getMonth(),
+          lastMonth: dateObj.getMonth()-1,
           curDate: dateObj.getDate(),
           curEventsDate: 'all'
         }
