@@ -18,20 +18,19 @@ export default {
   data () {
     return {
       events: [{
+        date: `${today.getFullYear()}/${today.getMonth()}/6`,
+        title: 'Title-2'
+      },{
         date: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`,
         title: 'Title-1',
         desc: 'longlonglong description'
       },{
-        date: `${today.getFullYear()}/${today.getMonth() + 1}/15`,
+        date: `${today.getFullYear()}/${today.getMonth()}/15`,
         title: 'Title-1',
         desc: 'longlonglong description'
       },{
-        date: `${today.getFullYear()}/${today.getMonth() + 1}/24`,
+        date: `${today.getFullYear()}/${today.getMonth()}/24`,
         title: 'Title-2'
-      },{
-        date: `${today.getFullYear()}/${today.getMonth() === 11 ? 1 : today.getMonth() + 2}/06`,
-        title: 'Title-3',
-        desc: 'description'
       }]
     }
   },

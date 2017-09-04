@@ -23,7 +23,7 @@
             <p class="date-num"
               @click="handleChangeCurday(date)"
               :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
-              {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+              {{date.status ? ((today == date.date) ? '今天' : ((startDay == date.date) ? '首次' : date.date.split('/')[2])) : '&nbsp'}}</p>
             <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
             <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
               :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
@@ -55,7 +55,7 @@
             <p class="date-num"
               @click="handleChangeCurday(date)"
               :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
-              {{date.status ? date.date.split('/')[2] : '&nbsp'}}</p>
+              {{date.status ? ((today == date.date) ? '今天' : ((startDay == date.date) ? '首次' : date.date.split('/')[2])) : '&nbsp'}}</p>
             <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
             <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
               :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
@@ -74,6 +74,7 @@ const inBrowser = typeof window !== 'undefined'
 export default {
   name: 'cal-panel',
   data () {
+    console.log(this.events)
     return {
       i18n
     }
@@ -152,6 +153,10 @@ export default {
             tempArr.push(tempItem)
         }
         return tempArr
+    },
+    startDay () {
+      let dateObj = new Date(this.events[0].date)
+      return `${dateObj.getFullYear()}/${dateObj.getMonth()+1}/${dateObj.getDate()}`
     },
     today () {
       let dateObj = new Date()
