@@ -10,7 +10,7 @@ function install (Vue, options = {}) {
     locale: 'zh', // en
     color: ' #f29543',
     className:'selected-day',
-    weekStartOn: 0 // 0 mean sunday
+    weekStartOn: 1 // 0 mean sunday
   }
   let Calendar = {
     $vm: null,
@@ -65,7 +65,6 @@ function install (Vue, options = {}) {
         params: {
           curYear: dateObj.getFullYear(),
           curMonth: dateObj.getMonth(),
-          lastMonth: dateObj.getMonth()-1,
           curDate: dateObj.getDate(),
           curEventsDate: 'all'
         }

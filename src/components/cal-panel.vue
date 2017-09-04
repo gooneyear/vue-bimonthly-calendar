@@ -14,7 +14,7 @@
           </span>
         </div>
         <div class="dates" >
-          <div v-for="date in dayList" class="item"
+          <div v-for="date in lastDayList" class="item"
             :class="{
               today: date.status ? (today == date.date) : false,
               event: date.status ? (date.title != undefined) : false,
@@ -94,7 +94,7 @@ export default {
   },
   computed: {
     dayList () {
-        let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 1)
+        let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 0)
 
         let startDate = new Date(firstDay)
         startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
@@ -123,6 +123,36 @@ export default {
         }
         return tempArr
     },
+    lastDayList () {
+        let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth-1, 0)
+
+        let startDate = new Date(firstDay)
+        startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
+
+        let item, status, tempArr = [], tempItem
+        for (let i = 0 ; i < 42 ; i++) {
+            item = new Date(startDate);
+            item.setDate(startDate.getDate() + i);
+
+            if (this.calendar.params.curMonth-1 === item.getMonth()) {
+              status = 1
+            } else {
+              status = 0
+            }
+            tempItem = {
+              date: `${item.getFullYear()}/${item.getMonth()+1}/${item.getDate()}`,
+              status: status
+            }
+            this.events.forEach((event) => {
+              if (isEqualDateStr(event.date, tempItem.date)) {
+                tempItem.title = event.title
+                tempItem.desc = event.desc || ''
+              }
+            })
+            tempArr.push(tempItem)
+        }
+        return tempArr
+    },
     today () {
       let dateObj = new Date()
       return `${dateObj.getFullYear()}/${dateObj.getMonth()+1}/${dateObj.getDate()}`
@@ -132,7 +162,7 @@ export default {
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
     lastYearMonth () {
-      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.lastMonth+1}/01`))
+      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth}/01`))
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
     customColor () {
@@ -146,7 +176,7 @@ export default {
     },
     preMonth () {
       this.$EventCalendar.preMonth()
-      this.$emit('month-changed', this.curYearMonth)
+      this.$emit('month-changed', this.lastYearMonth)
     },
     handleChangeCurday (date) {
       if (date.status) {
