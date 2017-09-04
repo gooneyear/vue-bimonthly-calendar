@@ -147,7 +147,7 @@ export default {
     margin: 0 auto;
     .cal-wrapper{
       width: 45%;
-      padding: 30px;
+      padding: 5px 20px;
       float: left;
       .date-num{
         line-height: 40px;
