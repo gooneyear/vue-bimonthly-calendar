@@ -124,7 +124,7 @@ export default {
         return tempArr
     },
     lastDayList () {
-        let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth-1, 0)
+        let firstDay = new Date(this.calendar.params.lastYear, this.calendar.params.lastMonth, 0)
 
         let startDate = new Date(firstDay)
         startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
@@ -134,7 +134,7 @@ export default {
             item = new Date(startDate);
             item.setDate(startDate.getDate() + i);
 
-            if (this.calendar.params.curMonth-1 === item.getMonth()) {
+            if (this.calendar.params.lastMonth === item.getMonth()) {
               status = 1
             } else {
               status = 0
@@ -162,7 +162,7 @@ export default {
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
     lastYearMonth () {
-      let tempDate = Date.parse(new Date(`${this.calendar.params.curYear}/${this.calendar.params.curMonth}/01`))
+      let tempDate = Date.parse(new Date(`${this.calendar.params.lastYear}/${this.calendar.params.lastMonth+1}/01`))
       return dateTimeFormatter(tempDate, this.i18n[this.calendar.options.locale].format)
     },
     customColor () {

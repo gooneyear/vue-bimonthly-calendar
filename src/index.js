@@ -45,6 +45,12 @@ function install (Vue, options = {}) {
         this.$vm.CALENDAR_EVENTS_DATA.params.curYear++
         this.$vm.CALENDAR_EVENTS_DATA.params.curMonth = 0
       }
+      if (this.$vm.CALENDAR_EVENTS_DATA.params.lastMonth < 11) {
+        this.$vm.CALENDAR_EVENTS_DATA.params.lastMonth++
+      } else {
+        this.$vm.CALENDAR_EVENTS_DATA.params.lastYear++
+        this.$vm.CALENDAR_EVENTS_DATA.params.lastMonth = 0
+      }
     },
     preMonth () {
       if (this.$vm.CALENDAR_EVENTS_DATA.params.curMonth > 0) {
@@ -52,6 +58,12 @@ function install (Vue, options = {}) {
       } else {
         this.$vm.CALENDAR_EVENTS_DATA.params.curYear--
         this.$vm.CALENDAR_EVENTS_DATA.params.curMonth = 11
+      }
+      if (this.$vm.CALENDAR_EVENTS_DATA.params.lastMonth > 0) {
+        this.$vm.CALENDAR_EVENTS_DATA.params.lastMonth--
+      } else {
+        this.$vm.CALENDAR_EVENTS_DATA.params.lastYear--
+        this.$vm.CALENDAR_EVENTS_DATA.params.lastMonth = 11
       }
     }
   }
@@ -64,7 +76,9 @@ function install (Vue, options = {}) {
         options: calendarOptions,
         params: {
           curYear: dateObj.getFullYear(),
+          lastYear: dateObj.getFullYear(),
           curMonth: dateObj.getMonth(),
+          lastMonth: dateObj.getMonth()-1,
           curDate: dateObj.getDate(),
           curEventsDate: 'all'
         }
