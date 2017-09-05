@@ -16,8 +16,7 @@
         <div class="dates" >
           <div v-for="date in lastDayList" class="item"
             :class="{
-              today: date.status ? (today == date.date) : false,
-              event: date.status ? (date.title != undefined) : false,
+              event: true,
               [calendar.options.className] : (date.date == selectedDay)
             }">
             <p class="date-num"
@@ -48,8 +47,7 @@
         <div class="dates" >
           <div v-for="date in dayList" class="item"
             :class="{
-              today: date.status ? (today == date.date) : false,
-              event: date.status ? (date.title != undefined) : false,
+              event: true,
               [calendar.options.className] : (date.date == selectedDay)
             }">
             <p class="date-num"
