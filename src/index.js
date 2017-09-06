@@ -1,6 +1,6 @@
 'use strict'
 
-import vueEventCalendar from './vue-event-calendar.vue'
+import vueBimonthlyCalendar from './vue-bimonthly-calendar.vue'
 
 function install (Vue, options = {}) {
   const isVueNext = Vue.version.split('.')[0] === '2'
@@ -91,7 +91,7 @@ function install (Vue, options = {}) {
     Calendar.bindEventBus(VueCalendarBarEventBus)
   }
 
-  Vue.component('vue-event-calendar', vueEventCalendar)
+  Vue.component('vue-bimonthly-calendar', vueBimonthlyCalendar)
 
   Vue.prototype.$EventCalendar = Calendar
 }

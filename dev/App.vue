@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <div class="calendarPanl">
-      <vue-event-calendar
+      <vue-bimonthly-calendar
         :events="events"
         @day-changed="handleDayChanged"
         @month-changed="handleMonthChanged"
-      ></vue-event-calendar>
+      ></vue-bimonthly-calendar>
     </div>
     </div>
   </div>

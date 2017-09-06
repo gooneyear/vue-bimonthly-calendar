@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import vueEventCalendar from '../src/'
+import vueBimonthlyCalendar from '../src/'
 // import vueEventCalendar from '../dist'
 // import '../dist/style.css'
-Vue.use(vueEventCalendar, {locale: 'zh'})
+Vue.use(vueBimonthlyCalendar, {locale: 'zh'})
 
 new Vue({
   el: '#app',

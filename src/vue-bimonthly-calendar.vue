@@ -17,7 +17,7 @@ import calPanel from './components/cal-panel.vue'
 
 const inBrowser = typeof window !== 'undefined'
 export default {
-  name: 'vue-event-calendar',
+  name: 'vue-bimonthly-calendar',
   components: {
     'cal-events': calEvents,
     'cal-panel': calPanel
@@ -39,7 +39,7 @@ export default {
         let validate = true
         events.forEach((event, index) => {
           if (!event.date) {
-            console.error('Vue-Event-Calendar-Error:' + 'Prop events Wrong at index ' + index)
+            console.error('vue-Bimonthly-Calendar-Error:' + 'Prop events Wrong at index ' + index)
             validate = false
           }
         })

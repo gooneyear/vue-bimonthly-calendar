@@ -57,7 +57,7 @@ if (process.env.NODE_ENV === 'production') {
   module.exports.output = {
     path: path.resolve(__dirname, './dist'),
     filename:'index.js',
-    library:'VueEventCalendar',
+    library:'vueBimonthlyCalendar',
     libraryTarget: 'umd'
   }
   module.exports.devtool = '#source-map'
