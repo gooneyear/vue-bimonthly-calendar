@@ -25,7 +25,7 @@ export default {
   data () {
     return {
       selectedDayEvents: {
-        date: 'all',
+        date: this.selectedDay,
         events: this.events || []  //default show all event
       }
     }
@@ -45,6 +45,11 @@ export default {
         })
         return validate
       }
+    },
+    selectedDay:{
+      type: String,
+      required: false,
+      default: 'all'
     }
   },
   computed: {
@@ -275,20 +280,6 @@ export default {
             margin-left: -18px;
             margin-top: -19px;
           }
-          .is-today{
-            content: '';
-            background-color: @base-orange;
-            border-radius: 50%;
-            opacity: .8;
-            width: 12px;
-            height: 4px;
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            z-index: 2;
-            margin-left: -6px;
-            margin-top: 8px;
-          }
         }
       }
     }
@@ -340,7 +331,8 @@ export default {
     }
   }
   .arrow-left.icon {
-    color: #000;
+    color: #0a81e5;
+    text-decoration: underline;
     position: absolute;
     left: 6%;
     margin-top: 10px;
@@ -358,7 +350,8 @@ export default {
             transform: rotate(-135deg);
   }
   .arrow-right.icon {
-    color: #000;
+    color: #0a81e5;
+    text-decoration: underline;
     position: absolute;
     right: 6%;
     margin-top: 10px;

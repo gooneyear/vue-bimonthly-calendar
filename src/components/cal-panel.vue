@@ -23,7 +23,6 @@
               @click="handleChangeCurday(date)"
               :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
               {{date.status ? ((today == date.date) ? '今天' : ((startDay == date.date) ? '首次' : date.date.split('/')[2])) : '&nbsp'}}</p>
-            <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
             <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
               :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
           </div>
@@ -54,7 +53,6 @@
               @click="handleChangeCurday(date)"
               :style="{color: date.title != undefined ? ((date.date == selectedDay) ? '#fff' : customColor) : 'inherit'}">
               {{date.status ? ((today == date.date) ? '今天' : ((startDay == date.date) ? '首次' : date.date.split('/')[2])) : '&nbsp'}}</p>
-            <span v-if="date.status ? (today == date.date) : false" class="is-today" :style="{backgroundColor: customColor }" ></span>
             <span v-if="date.status ? (date.title != undefined) : false" class="is-event"
               :style="{borderColor: customColor, backgroundColor: (date.date == selectedDay) ? customColor : 'inherit'}"></span>
           </div>
@@ -94,7 +92,6 @@ export default {
   computed: {
     dayList () {
         let firstDay = new Date(this.calendar.params.curYear, this.calendar.params.curMonth, 0)
-
         let startDate = new Date(firstDay)
         startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
 
@@ -124,7 +121,6 @@ export default {
     },
     lastDayList () {
         let firstDay = new Date(this.calendar.params.lastYear, this.calendar.params.lastMonth, 0)
-
         let startDate = new Date(firstDay)
         startDate.setDate(firstDay.getDate() - firstDay.getDay() + this.calendar.options.weekStartOn)
 

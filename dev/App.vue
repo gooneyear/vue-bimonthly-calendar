@@ -3,6 +3,7 @@
     <div class="calendarPanl">
       <vue-bimonthly-calendar
         :events="events"
+        :selectedDay="selectedDay"
         @day-changed="handleDayChanged"
         @month-changed="handleMonthChanged"
       ></vue-bimonthly-calendar>
@@ -31,7 +32,8 @@ export default {
       },{
         date: `${today.getFullYear()}/${today.getMonth()}/24`,
         title: 'Title-2'
-      }]
+      }],
+      selectedDay: `${today.getFullYear()}/${today.getMonth() + 1}/${today.getDate()}`
     }
   },
   methods: {
