@@ -6,6 +6,15 @@ function install (Vue, options = {}) {
   const isVueNext = Vue.version.split('.')[0] === '2'
   const inBrowser = typeof window !== 'undefined'
   let dateObj = new Date()
+  let lastYearShow = "";
+  let lastMonthShow = "";
+  if(dateObj.getMonth() == 0){
+    lastYearShow = dateObj.getFullYear()-1;
+    lastMonthShow = 11;
+  } else {
+    lastYearShow = dateObj.getFullYear()-1;
+    lastMonthShow = dateObj.getMonth()-1;
+  }
   const DEFAULT_OPTION = {
     locale: 'zh', // en
     color: ' #0a81e5',
@@ -76,9 +85,9 @@ function install (Vue, options = {}) {
         options: calendarOptions,
         params: {
           curYear: dateObj.getFullYear(),
-          lastYear: dateObj.getFullYear(),
+          lastYear: lastYearShow,
           curMonth: dateObj.getMonth(),
-          lastMonth: dateObj.getMonth()-1,
+          lastMonth: lastMonthShow,
           curDate: dateObj.getDate(),
           curEventsDate: 'all'
         }
