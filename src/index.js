@@ -12,7 +12,7 @@ function install (Vue, options = {}) {
     lastYearShow = dateObj.getFullYear()-1;
     lastMonthShow = 11;
   } else {
-    lastYearShow = dateObj.getFullYear()-1;
+    lastYearShow = dateObj.getFullYear();
     lastMonthShow = dateObj.getMonth()-1;
   }
   const DEFAULT_OPTION = {
